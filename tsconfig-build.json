@@ -25,14 +25,14 @@
     "inlineSources": true
   },
   "files": [
-    "public_api.ts",
+    "index.ts",
     "node_modules/zone.js/dist/zone.js.d.ts"
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
-    "flatModuleOutFile": "angular5-data-table.js",
-    "flatModuleId": "angular5-data-table"
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "angular-datatable-ms"
   }
 }
