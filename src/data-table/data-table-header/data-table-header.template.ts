@@ -1,12 +1,18 @@
+export const HEADER_TEMPLATE = `
 <div class="data-table-header">
     <h4 class="title" [textContent]="dataTable.headerTitle"></h4>
     <div class="button-panel">
-        <button type="button" class="btn btn-default btn-sm refresh-button" (click)="dataTable.reloadItems()" [attr.aria-label]="dataTable.translations.headerReload"
+        <button type="button"
+            class="btn btn-default btn-sm refresh-button"
+            (click)="dataTable.reloadItems()" [attr.aria-label]="dataTable.translations.headerReload"
             [title]="dataTable.translations.headerReload">
             <i class="fa fa-refresh" aria-hidden="true"></i>
         </button>
-        <button type="button" class="btn btn-default btn-sm column-selector-button" [class.active]="columnSelectorOpen" (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()"
-            [attr.aria-label]="dataTable.translations.headerColumnSelector" [title]="dataTable.translations.headerColumnSelector">
+        <button type="button" class="btn btn-default btn-sm column-selector-button"
+            [class.active]="columnSelectorOpen"
+            (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()"
+            [attr.aria-label]="dataTable.translations.headerColumnSelector"
+            [title]="dataTable.translations.headerColumnSelector">
             <i class="fa fa-list" aria-hidden="true"></i>
         </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
@@ -38,4 +44,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>`;

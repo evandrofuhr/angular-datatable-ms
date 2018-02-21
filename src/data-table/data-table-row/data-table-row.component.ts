@@ -2,13 +2,15 @@ import {
     Component, Input, Inject, forwardRef, Output, EventEmitter, OnDestroy
 } from '@angular/core';
 import { DataTableComponent } from '../data-table.component';
+import { ROW_TEMPLATE } from './data-table-row.template';
+import { ROW_STYLE } from './data-table-row.style';
 
 @Component({
     moduleId: module.id,
     // tslint:disable-next-line:component-selector
     selector: '[dataTableRow]',
-    templateUrl: './data-table-row.component.html',
-    styleUrls: ['./data-table-row.component.css']
+    template: ROW_TEMPLATE,
+    styles: [ ROW_STYLE ]
 })
 export class DataTableRowComponent implements OnDestroy {
     @Input() public item: any;

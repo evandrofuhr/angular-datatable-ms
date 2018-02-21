@@ -1,3 +1,4 @@
+export const TABLE_STYLE = `
 /* bootstrap override: */
 
 :host /deep/ .data-table.table > tbody+tbody {
@@ -88,4 +89,4 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-}
+}`;

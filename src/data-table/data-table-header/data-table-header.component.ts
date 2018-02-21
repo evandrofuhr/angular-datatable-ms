@@ -1,11 +1,13 @@
 import { Component, Inject, forwardRef, HostListener } from '@angular/core';
 import { DataTableComponent } from '../data-table.component';
+import { HEADER_TEMPLATE } from './data-table-header.template';
+import { HEADER_STYLE } from './data-table-header.style';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'data-table-header',
-  templateUrl: './data-table-header.component.html',
-  styleUrls: ['./data-table-header.component.css']
+  template: HEADER_TEMPLATE,
+  styles: [ HEADER_STYLE ]
 })
 export class DataTableHeaderComponent {
   public columnSelectorOpen = false;

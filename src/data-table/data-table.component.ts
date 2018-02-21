@@ -14,13 +14,15 @@ import { RowCallback } from '../shared/types/row-callback.type';
 import { IDataTableTranslations } from '../shared/types/data-table-translations.type';
 import { defaultTranslations } from '../shared/types/default-translations.type';
 import { drag } from '../shared/utils/drag';
+import { TABLE_TEMPLATE } from './data-table.template';
+import { TABLE_STYLE } from './data-table.style';
 
 @Component({
     moduleId: module.id,
     // tslint:disable-next-line:component-selector
     selector: 'data-table',
-    templateUrl: './data-table.component.html',
-    styleUrls: ['./data-table.component.css']
+    template: TABLE_TEMPLATE,
+    styles: [ TABLE_STYLE ]
 })
 export class DataTableComponent implements IDataTableParams, OnInit {
     @Input() public itemCount?: number;

@@ -1,3 +1,4 @@
+export const ROW_STYLE = `
 .select-column {
     text-align: center;
 }
@@ -9,4 +10,4 @@
 
 .clickable {
     cursor: pointer;
-}
+}`;

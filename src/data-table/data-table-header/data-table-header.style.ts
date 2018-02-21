@@ -1,3 +1,4 @@
+export const HEADER_STYLE = `
 .data-table-header {
     min-height: 25px;
     margin-bottom: 10px;
@@ -31,4 +32,4 @@
 }
 .column-selector-fixed-column {
     font-style: italic;
-}
+}`;
