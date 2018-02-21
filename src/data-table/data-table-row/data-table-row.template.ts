@@ -1,6 +1,5 @@
 export const ROW_TEMPLATE = `
-<tr class="data-table-row" [
-    title]="getTooltip()"
+<tr class="data-table-row" [title]="getTooltip()"
     [style.background-color]="dataTable.getRowColor(item, index, _this)" [class.row-odd]="index % 2 === 0"
     [class.row-even]="index % 2 === 1"
     [class.selected]="selected"
