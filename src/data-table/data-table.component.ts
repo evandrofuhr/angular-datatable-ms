@@ -42,7 +42,7 @@ export class DataTableComponent implements IDataTableParams, OnInit {
     @Input() public autoReload = true;
     @Input() public showReloading = false;
     @Input() public noDataMessage?: string;
-    @Input() public adicionalClass?: string;
+    @Input() public additionalClass = '';
     @Input() get items() {
         return this._items;
     }
