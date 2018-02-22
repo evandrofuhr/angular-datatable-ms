@@ -1,6 +1,6 @@
 {
   "name": "angular-datatable-ms",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An accessible Angular 5 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
