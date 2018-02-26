@@ -52,13 +52,26 @@ export class DataTableComponent implements IDataTableParams, OnInit {
         this._onReloadFinished();
     }
     @Input()
+    get params() {
+        return this._getRemoteParameters();
+    }
+    set params(value: IDataTableParams) {
+        this.sortBy = value.sortBy;
+        this.sortAsc = value.sortAsc;
+        this.offset = value.offset || 0;
+        this.limit = value.limit || 10;
+    }
+    @Input()
     get sortBy() {
         return this._sortBy;
     }
 
     set sortBy(value) {
+        const reload = (!this._sortBy && value) || (this._sortBy && !value) || (this._sortBy !== value);
         this._sortBy = value;
-        this.subject$.next();
+        if (reload) {
+            this.subject$.next();
+        }
     }
 
     @Input()
@@ -67,8 +80,11 @@ export class DataTableComponent implements IDataTableParams, OnInit {
     }
 
     set sortAsc(value) {
+        const reload = (!this._sortAsc && value) || (this._sortAsc && !value) || (this._sortAsc !== value);
         this._sortAsc = value;
-        this.subject$.next();
+        if (reload) {
+            this.subject$.next();
+        }
     }
 
     @Input()
@@ -77,22 +93,30 @@ export class DataTableComponent implements IDataTableParams, OnInit {
     }
 
     set offset(value) {
+        const reload = (!this._offset && value) || (this._offset && !value) || (this._offset !== value);
         this._offset = value;
-        this.subject$.next();
+        if (reload) {
+            this.subject$.next();
+        }
     }
 
     @Input()
     get limit() {
         return this._limit;
     }
-
     set limit(value) {
+        const reload = (!this._limit && value) || (this._limit && !value) || (this._limit !== value);
         this._limit = value;
-        this.subject$.next();
+        if (reload) {
+            this.subject$.next();
+        }
     }
 
     @Input()
     get page() {
+        if (this.limit === 0 ) {
+            return 0;
+        }
         return Math.floor(this.offset / this.limit) + 1;
     }
 
@@ -101,6 +125,9 @@ export class DataTableComponent implements IDataTableParams, OnInit {
     }
 
     get lastPage() {
+        if (this.limit === 0 ) {
+            return 0;
+        }
         return Math.ceil((this.itemCount || 0) / this.limit);
     }
     @Output() public reload = new EventEmitter();
