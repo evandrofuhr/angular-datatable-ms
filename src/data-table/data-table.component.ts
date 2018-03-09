@@ -22,10 +22,10 @@ import { TABLE_STYLE } from './data-table.style';
     // tslint:disable-next-line:component-selector
     selector: 'data-table',
     template: TABLE_TEMPLATE,
-    styles: [ TABLE_STYLE ]
+    styles: [TABLE_STYLE]
 })
 export class DataTableComponent implements IDataTableParams, OnInit {
-    @Input() public itemCount?: number;
+    @Input() public itemCount: number = 0;
     @Input() public headerTitle?: string;
     @Input() public header = true;
     @Input() public pagination = true;
@@ -56,10 +56,10 @@ export class DataTableComponent implements IDataTableParams, OnInit {
         return this._getRemoteParameters();
     }
     set params(value: IDataTableParams) {
-        this.sortBy = value.sortBy;
-        this.sortAsc = value.sortAsc;
-        this.offset = value.offset || 0;
-        this.limit = value.limit || 10;
+        this._sortBy = value.sortBy;
+        this._sortAsc = value.sortAsc;
+        this._offset = value.offset || 0;
+        this._limit = value.limit || 10;
     }
     @Input()
     get sortBy() {
@@ -114,9 +114,6 @@ export class DataTableComponent implements IDataTableParams, OnInit {
 
     @Input()
     get page() {
-        if (this.limit === 0 ) {
-            return 0;
-        }
         return Math.floor(this.offset / this.limit) + 1;
     }
 
@@ -125,10 +122,7 @@ export class DataTableComponent implements IDataTableParams, OnInit {
     }
 
     get lastPage() {
-        if (this.limit === 0 ) {
-            return 0;
-        }
-        return Math.ceil((this.itemCount || 0) / this.limit);
+        return Math.ceil(this.itemCount / this.limit);
     }
     @Output() public reload = new EventEmitter();
     @Output() public rowClick = new EventEmitter();

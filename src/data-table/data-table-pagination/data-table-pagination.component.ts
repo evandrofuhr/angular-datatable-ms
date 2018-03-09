@@ -35,7 +35,7 @@ export class DataTablePaginationComponent {
     }
 
     public get maxPage() {
-        return Math.ceil(this.dataTable.itemCount || 0 / this.dataTable.limit);
+        return Math.ceil(this.dataTable.itemCount / this.dataTable.limit);
     }
 
     public get limit() {

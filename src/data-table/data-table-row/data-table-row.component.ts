@@ -10,7 +10,7 @@ import { ROW_STYLE } from './data-table-row.style';
     // tslint:disable-next-line:component-selector
     selector: '[dataTableRow]',
     template: ROW_TEMPLATE,
-    styles: [ ROW_STYLE ]
+    styles: [ROW_STYLE]
 })
 export class DataTableRowComponent implements OnDestroy {
     @Input() public item: any;
@@ -19,20 +19,17 @@ export class DataTableRowComponent implements OnDestroy {
     // tslint:disable-next-line:variable-name
     public _this = this;
     public expanded?: boolean;
-    // tslint:disable-next-line:variable-name
-    private _selected?: boolean;
-
     // tslint:disable-next-line:no-forward-ref
     constructor(@Inject(forwardRef(() => DataTableComponent)) public dataTable: DataTableComponent) {
         this.index = 0;
     }
 
     get selected() {
-        return this._selected;
+        return this.item && this.item.selected;
     }
 
     set selected(selected) {
-        this._selected = selected;
+        this.item.selected = selected;
         this.selectedChange.emit(selected);
     }
 
@@ -54,7 +51,6 @@ export class DataTableRowComponent implements OnDestroy {
     }
 
     public ngOnDestroy() {
-        this.selected = false;
+        // this.selected = false;
     }
-
 }
